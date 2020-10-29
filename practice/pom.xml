@@ -15,9 +15,17 @@
 	<name>practice</name>
 	<description>Demo project for Spring Boot</description>
 
-	<dependencies>
+	<properties>
+		<cglib.version>2.2.2</cglib.version>
+	</properties>
 
-	</dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>${cglib.version}</version>
+		</dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
