@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description: 代理对象：用户业务实现类；jdk动态代理需要实现统一的接口（强制）
+ * @Description: 被代理对象：用户业务实现类；jdk动态代理需要实现统一的接口（强制）
  * @Author: ZhouLiKuan
  * @Date: 2020/10/29 10:27
  */
