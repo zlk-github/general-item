@@ -7,7 +7,7 @@ import net.sf.cglib.proxy.MethodProxy;
 import java.lang.reflect.Method;
 
 /**
- * @Description: cglib方式实现动态代理器-需要实现MethodInterceptor 接口，重写invoke方法。
+ * @Description: cglib方式实现动态代理器-需要实现MethodInterceptor 接口，重写intercept方法。
  * @Author: ZhouLiKuan
  * @Date: 2020/10/29 10:46
  */
