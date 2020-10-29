@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description: 代理对象：用户业务实现类；cglib动态代理不需要实现统一的接口
+ * @Description: 被代理对象：用户业务实现类；cglib动态代理不需要实现统一的接口
  * @Author: ZhouLiKuan
  * @Date: 2020/10/29 10:27
  */
