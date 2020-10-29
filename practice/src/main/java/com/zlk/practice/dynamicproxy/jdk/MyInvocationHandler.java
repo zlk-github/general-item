@@ -1,11 +1,9 @@
 package com.zlk.practice.dynamicproxy.jdk;
 
 import lombok.extern.slf4j.Slf4j;
-import sun.rmi.runtime.Log;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.util.Optional;
 
 /**
  * @Description: jdk方式实现动态代理器-需要实现InvocationHandler接口，重写invoke方法。
@@ -14,11 +12,11 @@ import java.util.Optional;
  */
 @Slf4j
 public class MyInvocationHandler<T> implements InvocationHandler {
-    /**代理对象,实现统一接口的实现类（UserServiceImpl）*/
+    /**被代理对象,实现统一接口的实现类（UserServiceImpl）*/
     private  Object target;
 
     /**
-     * 构造方法注入代理对象
+     * 构造方法注入被代理对象
      * @param target
      */
     public MyInvocationHandler(Object target) {
@@ -28,8 +26,8 @@ public class MyInvocationHandler<T> implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         // proxy 为MyInvocationHandler
-        // method 当前代理对象执行的具体方法
-        // args 当前代理对象执行的具体方法的入参
+        // method 当前被代理对象执行的具体方法
+        // args 当前被代理对象执行的具体方法的入参
 
         //每次调用日志会输出两次
 
