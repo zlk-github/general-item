@@ -64,6 +64,21 @@ mysql默认为repeatable-read。
 
 #### 5.1 树结构
 
+    SELECT * FROM tb_site
+    WHERE code IN(
+    SELECT code FROM
+    (
+    SELECT code,parent_code FROM tb_site WHERE parent_code> 0 ORDER BY parent_code, code DESC
+    ) t1,
+    (SELECT @pv := 10010101) t2
+    WHERE (FIND_IN_SET(parent_code,@pv)>0 AND @pv := CONCAT(@pv, ',', code)
+                         ) 
+                    )
+    UNION
+    SELECT * FROM tb_site WHERE code = 10010101
+
+****以下5.1存在bug****
+
     CREATE TABLE `test_user` (
         `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
         `name` varchar(255) NOT NULL DEFAULT '' COMMENT '名称',
