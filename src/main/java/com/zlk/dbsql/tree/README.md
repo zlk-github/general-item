@@ -77,7 +77,7 @@ mysql默认为repeatable-read。
     UNION
     SELECT * FROM tb_site WHERE code = 10010101
 
-****以下5.1存在bug****
+****以下5.1.1-5.1.2存在bug****
 
     CREATE TABLE `test_user` (
         `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',

@@ -21,5 +21,11 @@ https://mp.weixin.qq.com/s?__biz=MzA3ODIxNjYxNQ==&mid=2247493401&idx=2&sn=08dcf9
 
 ### 3 设计模式（）
 
-### 4
+### 4 nginx 负载均衡
+
+### 5 CDN
+
+
+
+
 
