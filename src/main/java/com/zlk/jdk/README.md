@@ -1,4 +1,4 @@
-## 1 JDK 普通练习项目
+## 1 Java 技术体系
 
 ### 1.1 dynamicproxy包 动态代理
 
@@ -23,3 +23,8 @@
 
 ### 1.5 jvm包 虚拟机调优
 
+* [JAVA](https://github.com/zlk-github/general-item/blob/master/README.md#JAVA)
+  * [JAVA集合](https://github.com/zlk-github/general-item/blob/master/README.md#JAVA集合)
+  * [JAVA多线程](https://github.com/zlk-github/general-item/blob/master/README.md#JAVA多线程)
+  * [JAVA虚拟机及优化](https://github.com/zlk-github/general-item/blob/master/README.md#JAVA虚拟机及优化)
+  * [JAVA虚拟机及优化](https://github.com/zlk-github/general-item/blob/master/README.md#JAVA虚拟机及优化)
