@@ -91,12 +91,13 @@ https://mp.weixin.qq.com/s?__biz=MzA3ODIxNjYxNQ==&mid=2247493401&idx=2&sn=08dcf9
 	
 	如果线程池中的线程数量大于 corePoolSize时，如果某线程空闲时间超过keepAliveTime，线程将被终止，直至线程池中的线程数目不大于corePoolSize；如果允许为核心池中的线程设置存活时间，那么核心池中的线程空闲时间超过keepAliveTime，线程也会被终止。
 
-### 3.常见锁java
+### 3.常见锁java  
 
       volatile
       单机锁LOCK，synchronized
       分布式锁：redis,zookpeer,mysql等实现
       乐观锁CAS等
+      多线程atomicInteger与分段锁 （https://www.cnblogs.com/muzhongjiang/p/15142938.html）
 
 ### 4.线程的原子性问题，可见性问题，有序性问题
 
