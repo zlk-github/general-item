@@ -21,7 +21,7 @@
          * [事务 ACID 特性](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#事务-acid-特性)
          * [事务的隔离级别](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#事务的隔离级别)
          * [MVCC](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#mvcc)
-     * [锁](https://github.com/zlk-github/general-item/blob/master/src/main/java/com/zlk/jdk/thread/README-LOCK.md#锁)
+     * [锁](https://github.com/zlk-github/general-item/blob/master/src/main/java/com/zlk/jdk/thread/lock/README-LOCK.md#锁)
          * [Java中的锁和同步类](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#java中的锁和同步类)
          * [公平锁 &amp; 非公平锁](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#公平锁--非公平锁)
          * [悲观锁](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#悲观锁)
