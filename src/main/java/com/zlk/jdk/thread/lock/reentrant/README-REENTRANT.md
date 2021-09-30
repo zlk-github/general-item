@@ -1,4 +1,4 @@
-## 可重入锁
+## 可重入锁 & 不可重入锁
 
       volatile
       单机锁LOCK，synchronized
@@ -11,7 +11,7 @@
 
 #### 2.1 可重入锁（JAVA中使用多）
 
-**测试代码见**:  [可重入锁](https://github.com/zlk-github/general-item/blob/master/src/main/java/com/zlk/jdk/thread/lock/reentrant/ReentrantTest.java#可重入锁)
+**测试代码见**:  [可重入锁测试代码](https://github.com/zlk-github/general-item/blob/master/src/main/java/com/zlk/jdk/thread/lock/reentrant/ReentrantTest.java#可重入锁测试代码)
 
 #### 2.1.1 什么是可重入锁
 
@@ -202,8 +202,10 @@ public class ReentrantTest {
      */
     public static void reentrantLockTest2() {
         // 锁同一个对象,不产生死锁（当前测试解锁次数一致成功情况）
-        ReentrantLock lock = new ReentrantLock();
-        // 第一个线程
+        // 独享，非公平锁
+        //ReentrantLock lock = new ReentrantLock();
+        // 独享，公平锁
+        ReentrantLock lock = new ReentrantLock(true);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -298,6 +300,7 @@ public class ReentrantTest {
 
 #### 2.2 不可重入锁
 
+    所谓不可重入锁，即若当前线程执行某个方法已经获取了该锁，那么在方法中尝试再次获取锁时，就会获取不到被阻塞。--使用不当容易产生死锁。
 
 ### 3 aqs原理
 

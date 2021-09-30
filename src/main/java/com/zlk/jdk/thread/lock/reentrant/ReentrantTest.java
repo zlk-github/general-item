@@ -147,9 +147,9 @@ public class ReentrantTest {
      */
     public static void reentrantLockTest2() {
         // 锁同一个对象,不产生死锁（当前测试解锁次数一致成功情况）
-        // 独享
+        // 悲观锁，独享，非公平锁
         //ReentrantLock lock = new ReentrantLock();
-        // true 为共享
+        // 悲观锁，独享，公平锁
         ReentrantLock lock = new ReentrantLock(true);
         // 第一个线程
         new Thread(new Runnable() {
