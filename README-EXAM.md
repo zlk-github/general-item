@@ -21,3 +21,5 @@
 ### Spring框架
 
     spring aop 底层实现原理
+    
+    spring  Bean 创建，生命周期，循环依赖。
