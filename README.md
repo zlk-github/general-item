@@ -319,6 +319,7 @@
         * [TDD 理论](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#tdd-理论)
         * [单元测试](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#单元测试)
         * [压力测试](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#压力测试)
+          * [jmeter]( https://github.com/zlk-github/general-item/blob/master/src/main/java/com/zlk/pressure/test/README-JMETER.md#jmeter)
         * [全链路压测](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#全链路压测)
         * [A/B 、灰度、蓝绿测试](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#ab-灰度蓝绿测试)
     * [虚拟化](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#虚拟化)
