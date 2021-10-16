@@ -1,10 +1,10 @@
-package com.zlk.algorithm.data.sort.bubblesort;
+package com.zlk.algorithm.common.sort.bubblesort;
 
 
 
-import com.zlk.algorithm.data.sort.insertsort.InsertSort;
-import com.zlk.algorithm.data.sort.selectsort.SelectSort;
-import com.zlk.algorithm.data.sort.util.RandomArray;
+import com.zlk.algorithm.common.sort.insertsort.InsertSort;
+import com.zlk.algorithm.common.sort.selectsort.SelectSort;
+import com.zlk.algorithm.common.sort.util.RandomArray;
 
 import java.util.Random;
 

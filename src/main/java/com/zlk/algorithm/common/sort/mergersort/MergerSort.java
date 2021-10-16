@@ -1,4 +1,4 @@
-package com.zlk.algorithm.data.sort.mergersort;
+package com.zlk.algorithm.common.sort.mergersort;
 
 /**desc:归并排序
  * @author  zhoulk

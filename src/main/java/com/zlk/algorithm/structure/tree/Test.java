@@ -1,4 +1,4 @@
-package com.zlk.algorithm.data.tree;
+package com.zlk.algorithm.structure.tree;
 
 import java.util.concurrent.ConcurrentHashMap;
 

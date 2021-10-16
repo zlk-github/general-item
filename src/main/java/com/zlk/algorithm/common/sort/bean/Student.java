@@ -1,4 +1,4 @@
-package com.zlk.algorithm.data.sort.bean;
+package com.zlk.algorithm.common.sort.bean;
 
 import lombok.Getter;
 import lombok.Setter;

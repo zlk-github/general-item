@@ -1,4 +1,4 @@
-package com.zlk.algorithm.data.sort.util;
+package com.zlk.algorithm.common.sort.util;
 
 import java.util.Random;
 

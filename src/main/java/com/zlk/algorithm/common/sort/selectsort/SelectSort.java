@@ -1,7 +1,7 @@
-package com.zlk.algorithm.data.sort.selectsort;
+package com.zlk.algorithm.common.sort.selectsort;
 
-import com.zlk.algorithm.data.sort.bean.Student;
-import com.zlk.algorithm.data.sort.util.RandomArray;
+import com.zlk.algorithm.common.sort.bean.Student;
+import com.zlk.algorithm.common.sort.util.RandomArray;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.zlk.algorithm.data.tree;
+package com.zlk.algorithm.structure.tree;
 
 /**
  * @description: 二叉树操作

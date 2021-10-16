@@ -2,4 +2,4 @@
  * @author  zhoulk
  * date: 2019/5/16 0016
  */
-package com.zlk.algorithm.data.sort;
+package com.zlk.algorithm.common.sort;

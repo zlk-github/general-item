@@ -1,7 +1,7 @@
-package com.zlk.algorithm.data.sort.insertsort;
+package com.zlk.algorithm.common.sort.insertsort;
 
-import com.zlk.algorithm.data.sort.selectsort.SelectSort;
-import com.zlk.algorithm.data.sort.util.RandomArray;
+import com.zlk.algorithm.common.sort.selectsort.SelectSort;
+import com.zlk.algorithm.common.sort.util.RandomArray;
 
 /**插入排序
  * @author  zhoulk
