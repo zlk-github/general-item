@@ -34,7 +34,7 @@
 
 #### 3.1 目录操作
 
-    切换当前目录下的user目录: cd  usr （切换到根目录：cd /）
+    切换当前目录下的user目录: cd  usr （切换到根目录：cd / ；往上一级cd ../）
 
     创建目录redis：mkdir redis
 
@@ -69,7 +69,7 @@
 
     移动catalina.out到catalina2.out：mv catalina.out/ catalina2.out/
 
-    复制catalina.out到catalina2.out(不存在)：cp -r catalina.out/ catalina2.out/
+    复制catalina.out到catalina2.out(catalina2.out不存在)：cp -r catalina.out/ catalina2.out/
 
     上传下载文件：
         上传：rz （本地上传 sudo scp 本地目录 用户名@ip: 远程目录）
