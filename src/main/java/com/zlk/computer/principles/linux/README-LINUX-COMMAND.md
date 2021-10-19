@@ -97,7 +97,18 @@
         最新内容滚动查看：tail -f catalina.out
         最新内容查看500行（在之后更新的将不滚动展示）：tail -n 500 catalina.out
 
+以下命令生产不要使用
 
+    //-----------------------------------关闭Firewalld防火墙
+    //1、停止firewalld服务
+    systemctl stop firewalld
+    //2、禁止firewalld开机启动
+    systemctl disable firewalld
+    //-----------------------------------关闭SELinux
+    //1、临时关闭
+    setenforce 0
+    //2、永久关闭SELinux
+    sed -i "s/^SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config
 
 
 ### 4 性能命令
