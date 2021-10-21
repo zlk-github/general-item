@@ -119,6 +119,7 @@
           * [MySQl分库分表](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#MySQl分库分表)
           * [MySQl集群](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#MySQl集群)
     * [NoSQL](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#nosql)
+        * [Redis(key-value非关系内存缓存型)](https://github.com/zlk-github/common-test/blob/master/common-redis-test/README.md#Redis(key-value非关系内存缓存型))
         * [文档型非数据库MongoDB](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#文档型非数据库MongoDB)
         * [Hbase](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#hbase)
         * [Hive](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#Hive)
