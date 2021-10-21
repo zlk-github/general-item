@@ -115,4 +115,48 @@
 
 #### top
 
+
+### 5 防火墙命令
+
+#### 防火墙
+
+    防火墙状态：systemctl status firewalld
+    开启防火墙 ：systemctl start firewalld
+    开机自启：systemctl enable firewalld   -- 开启防火墙才会生效
+    关闭防火墙（暂时）:systemctl stop firewalld
+    关闭防火墙（永久）:systemctl disable firewalld  --使用少
+    防火墙详情：firewall-cmd --list-all
+
+#### 防火墙端口管理命令
+
+    查看当前系统打开的所有端口:firewall-cmd --zone=public --list-ports
+
+    防火墙已放行端口6379 ：
+            （1）如我们需要开启XShell连接时需要使用的6379端口
+            firewall-cmd --zone=public --add-port=6379/tcp --permanent
+            其中--permanent的作用是使设置永久生效，不加的话机器重启之后失效
+            （2）重新载入一下防火墙设置，使设置生效
+            firewall-cmd --reload
+            （3）可通过如下命令查看是否生效
+            firewall-cmd --zone=public --query-port=6379/tcp
+
+    限制端口:
+    （1）比如我们现在需要关掉打开的22端口
+    firewall-cmd --zone=public --remove-port=22/tcp --permanent
+    （2）重新载入一下防火墙设置，使设置生效
+    firewall-cmd --reload
+
+    批量开放或限制端口
+        （1）批量开放端口，如从100到500这之间的端口我们全部要打开
+        firewall-cmd --zone=public --add-port=100-500/tcp --permanent
+        （2）重新载入一下防火墙设置，使设置生效
+        firewall-cmd --reload
+
+#### 防火墙IP管理命令
+
+
 ### 参考
+    
+    阿里云安全组配置端口（详细）：https://help.aliyun.com/document_detail/25471.html?spm=a2c6h.13066369.0.0.45b56c86u5ESFx&userCode=28kqeewo
+    
+    LINUX现在ip与端口（详细）：https://blog.csdn.net/ywd1992/article/details/80401630
