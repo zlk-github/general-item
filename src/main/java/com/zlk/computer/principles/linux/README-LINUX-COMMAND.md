@@ -30,6 +30,11 @@
        df -hl
        结果：Used：已经使用的空间 ，Avail：可以使用的空间 ，Mounted on：挂载的目录
 
+    修改网卡：
+        切换目录：cd /etc/sysconfig/network-scripts
+        编辑ifcfg-ens33：vi ifcfg-ens33
+        重启网卡：service network restart
+        vi /etc/sysconfig/network-scripts/ifcfg-ens33
 ### 3 目录与文件相关
 
 #### 3.1 目录操作
@@ -56,6 +61,8 @@
                         ls -l /etc/alternatives/java
 
         find 目录 -name '*nginx*' 查找
+        
+        找包含redis: find -iname "*redis*"
 
     查看当前目录下子目录和文件的大小： du -sh *
 
