@@ -424,11 +424,25 @@
 
 ### 1 JAVA技术体系
 
+    主要未JAVA相关技术介绍与使用
+
 #### 1.1 JDK版本(重点JAVA8)
+
+    介绍JDK的版本发展差异，JAVA 8新特性，JAVA 11。
+
 
 #### 1.1.1 JDK版本介绍
 
+详见：[JDK版本](https://github.com/zlk-github/general-item/tree/master/src/main/java/com/zlk/jdk/README-JDK.md#JDK版本(JDK版本))
+
+    各JDK版本介绍。
+
 #### 1.1.2 JDK8新特性
+
+详见：[重点JAVA 8 && JAVA 11](https://github.com/zlk-github/general-item/tree/master/src/main/java/com/zlk/jdk/jdk8/README.md#JDK版本(重点JAVA8&&JAVA11))
+
+    JAVA 8新特性，JAVA 11。
+
 
 #### 1.2 JAVA集合
 
@@ -469,27 +483,6 @@
 
 #### 1.7 JAVA零散基础
 
-	* [JAVA虚拟机及优化](https://github.com/zlk-github/general-item/blob/master/README.md#JAVA虚拟机及优化)
-	* [JAVA设计模式](https://github.com/zlk-github/general-item/blob/master/README.md#JAVAJAVA设计模式)
-		* [设计模式的六大原则](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#设计模式的六大原则)
-		* [23种常见设计模式](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#23种常见设计模式)
-		* [应用场景](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#应用场景)
-		* [单例模式](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#单例模式)
-		* [责任链模式](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#责任链模式)
-		* [MVC](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#mvc)
-		* [IOC](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#ioc)
-		* [AOP](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#aop)
-		* [UML](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#uml)
-		* [微服务思想](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#微服务思想)
-			* [康威定律](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#康威定律)
-	* [JAVA框架与源码](https://github.com/zlk-github/general-item/blob/master/README.md#JAVAJAVA设计模式)
-		* [Spring与Spring MVC框架与源码](https://github.com/zlk-github/general-item/blob/master/README.md#Spring与SpringMVC框架与源码)
-		* [Spring Boot框架与源码](https://github.com/zlk-github/general-item/blob/master/README.md#SpringBoot框架与源码)
-		* [分布式框架与源码（Spring Cloud Alibaba为主）](https://github.com/zlk-github/general-item/blob/master/README.md#分布式框架与源码（SpringCloudAlibaba))
-		* [Netty框架与源码](https://github.com/zlk-github/general-item/blob/master/README.md#Netty框架与源码)
-		* [数据库持久框架与源码（MyBatis与MyBatis-plus）](https://github.com/zlk-github/general-item/blob/master/README.md#数据库持久框架与源码（MyBatis与MyBatis-plus）)
-		* [日志框架Log4j、Log4j2(非重点)](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#日志框架Log4j、Log4j2)
-	* [JAVA零散基础](https://github.com/zlk-github/general-item/blob/master/README.md#JAVA零散基础)
 
 
 ===============================================
