@@ -16,6 +16,8 @@
     登录：ssh root@ip
     切换root用户: root su sudo -
 
+    查询登录当前系统的用户信息：w
+
     查看redis进程：
         ps -ef|grep redis
         ps aux|grep redis
@@ -35,6 +37,7 @@
         编辑ifcfg-ens33：vi ifcfg-ens33
         重启网卡：service network restart
         vi /etc/sysconfig/network-scripts/ifcfg-ens33
+
 ### 3 目录与文件相关
 
 #### 3.1 目录操作
@@ -60,9 +63,9 @@
                         ls -l /usr/bin/java
                         ls -l /etc/alternatives/java
 
-        find 目录 -name '*nginx*' 查找
+        目录下的文件名称包含nginx: find 目录 -iname '*nginx*' 查找
         
-        找包含redis: find -iname "*redis*"
+        系统中目录找包含redis: find -iname "*redis*"
 
     查看当前目录下子目录和文件的大小： du -sh *
 
@@ -122,6 +125,21 @@
 
 #### top
 
+    top
+
+#### Iostat
+
+    iostat
+
+Iostat提供三个报告：CPU利用率、设备利用率和网络文件系统利用率，使用-c，-d和-h参数可以分别独立显示这三个报告。
+
+#### 内存分析命令：free m
+
+    free m 
+
+#### CPU占用情况
+
+    mpstat -P ALL 1
 
 ### 5 防火墙命令
 
