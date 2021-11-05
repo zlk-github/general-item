@@ -158,6 +158,11 @@ mysql默认为repeatable-read。
 
 ### 11.数据库优化
 
+in 优化
+    
+    https://dbs-service.cn/index.php/a/257.html --（最好不要使用）强制user_coin_log表走索引ix_5-- `user_coin_log` force index (ix_5)
+    https://www.jianshu.com/p/b1e9ea90e59d  --过长切割做in() or in()
+
 ### 12.常用sql
 
 #### 5.1 树结构
