@@ -63,7 +63,7 @@
                         ls -l /usr/bin/java
                         ls -l /etc/alternatives/java
 
-        目录下的文件名称包含nginx: find 目录 -iname '*nginx*' 查找
+        目录下的文件名称包含nginx: find 目录 -iname '*nginx*' 
         
         系统中目录找包含redis: find -iname "*redis*"
 
@@ -103,7 +103,7 @@
 
 
     查看日志(一般是日志文件，如下catalina.out是java日志输出文件)：
-        匹配内容中有2020的行：grep "2020" -i catalina.out
+        匹配内容中有2020的行：grep "2020" -i catalina.out | tail -n100
         最新内容滚动查看：tail -f catalina.out
         最新内容查看500行（在之后更新的将不滚动展示）：tail -n 500 catalina.out
 
