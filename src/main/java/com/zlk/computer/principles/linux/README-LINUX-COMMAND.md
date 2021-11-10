@@ -103,7 +103,7 @@
 
 
     查看日志(一般是日志文件，如下catalina.out是java日志输出文件)：
-        匹配内容中有2020的行：grep "2020" -i catalina.out | tail -n100
+        匹配内容中有2020的行,按后面开始展示100行：grep "2020" -i catalina.out | tail -n100
         最新内容滚动查看：tail -f catalina.out
         最新内容查看500行（在之后更新的将不滚动展示）：tail -n 500 catalina.out
 
