@@ -8,25 +8,41 @@ package com.zlk.algorithm.structure.list.array;
  */
 public class Array {
    final private static int END = 5;
-   private static Integer[] array = new Integer[10];
-   // private int arr1[] = new int[]{1,3,5,7,9};
-   // private int[] arr2 = {2, 4, 6, 8, 10};
+    /**插入第一个元素位置或者删除第一个元素，最坏情况会导致0(N)
+      下标获取为O(1)
+      遍历所有0(N)  */
+    private static Integer[] array = new Integer[10];
+    /**private int arr1[] = new int[]{1,3,5,7,9}; */
+    /**private int[] arr2 = {2, 4, 6, 8, 10}; */
 
     public static void main(String[] args) {
-        print();
+
     }
 
-    private static void print() {
-        for (int i = 0; i < END; i++) {
-            array[i] = i;
+    /**
+     * 插入数据到某个位置
+     * @param val 元素
+     * @param index 数组下标
+     */
+    private static boolean add(Integer val,int index) {
+        if (index>=array.length) {
+            // 超过下标
+            return false;
         }
-        String s = "11";
-        String s2 = "W25";
-        for (int i = 0; i < END; i++) {
-            System.out.println(array[i].getClass()+""+ array[i].hashCode());
+        // 如果插入数据位置无值，可以直接插入
+        if (array[index] == null) {
+            array[index] = val;
         }
-        System.out.println( s.hashCode());
-        System.out.println( s2.hashCode());
+
+        Integer temp;
+        //如果插入数据位置有值,插入位置的数据起，全部需要往后移动一位。
+        for (int i = index; i < END; i++) {
+            // 会出现越界
+            temp = array[i+1];
+            array[i+1] = array[i];
+        }
+        array[index] = val;
+        return false;
     }
 
 }

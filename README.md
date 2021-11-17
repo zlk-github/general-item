@@ -40,6 +40,7 @@
      * [单例模式](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#单例模式)
      * [责任链模式](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#责任链模式)
      * [MVC](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#mvc)
+     * [DDD](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#DDD)
      * [IOC](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#ioc)
      * [AOP](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#aop)
      * [UML](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#uml)
