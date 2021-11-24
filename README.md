@@ -168,6 +168,8 @@
         * [幂等](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#幂等)
         * [分布式一致方案](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#分布式一致方案)
         * [分布式 Leader 节点选举](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#分布式-leader-节点选举)
+        * [分布式事务atomikos](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#分布式-leader-节点选举)
+        * [分布式事务XA,TC](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#分布式-leader-节点选举)
         * [TCC(Try/Confirm/Cancel) 柔性事务](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#tcctryconfirmcancel-柔性事务)
     * [分布式文件系统](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#分布式文件系统)
       * [阿里OSS](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#阿里OSS)
