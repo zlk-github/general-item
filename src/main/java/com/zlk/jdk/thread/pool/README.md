@@ -102,7 +102,13 @@ public ThreadPoolExecutor(int corePoolSize,
    6. threadFactory：线程工厂，用于创建线程，一般用默认的即可。
    7. handler：拒绝策略，当任务太多来不及处理，如何拒绝任务。
 
-拒绝策略
+**workQueue任务队列**
+
+直接提交队列、有界任务队列、无界任务队列、优先任务队列；
+
+
+
+**拒绝策略**
 
 线程池中的线程已经用完了，无法继续为新任务服务，同时，等待队列也已经排满了，再也塞不下新任务了。这时候我们就需要拒绝策略机制合理的处理这个问题。
 JDK 内置的拒绝策略如下：
@@ -122,3 +128,4 @@ JDK 内置的拒绝策略如下：
 
     https://www.jianshu.com/p/7ab4ae9443b9
 
+    https://www.cnblogs.com/dafanjoy/p/9729358.html
