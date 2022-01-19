@@ -71,7 +71,7 @@ https://mp.weixin.qq.com/s?__biz=MzA3ODIxNjYxNQ==&mid=2247493401&idx=2&sn=08dcf9
 
 ### 3 线程池的组成ThreadPoolExecutor
 
-一般的线程池主要分为以下 4 个组成部分：
+#### 3.1 一般的线程池主要分为以下 4 个组成部分：
 
     1. 线程池管理器：用于创建并管理线程池
     2. 工作线程：线程池中的线程
@@ -102,13 +102,35 @@ public ThreadPoolExecutor(int corePoolSize,
    6. threadFactory：线程工厂，用于创建线程，一般用默认的即可。
    7. handler：拒绝策略，当任务太多来不及处理，如何拒绝任务。
 
-**workQueue任务队列**
+#### 3.2 workQueue任务队列
 
 直接提交队列、有界任务队列、无界任务队列、优先任务队列；
 
+1. 直接提交队列SynchronousQueue
 
+    SynchronousQueue是一个特殊的BlockingQueue，它没有容量，每执行一个插入操作就会阻塞，需要再执行一个删除操作才会被唤醒，反之每一个删除操作也都要等待对应的插入操作。
 
-**拒绝策略**
+    当任务队列为SynchronousQueue，创建的线程数大于maximumPoolSize时，会直接执行拒绝策略抛出异常。
+    
+    使用SynchronousQueue队列，提交的任务不会被保存，总是会马上提交执行。如果用于执行任务的线程数量小于maximumPoolSize，则尝试创建新的进程，
+    如果达到maximumPoolSize设置的最大值，则根据你设置的handler执行拒绝策略。因此这种方式你提交的任务不会被缓存起来，而是会被马上执行，在这种情况下，你需要对你程序的并发量有个准确的评估，才能设置合适的maximumPoolSize数量，否则很容易就会执行拒绝策略；
+
+2. 有界的任务队列ArrayBlockingQueue
+
+    使用ArrayBlockingQueue有界任务队列，若有新的任务需要执行时，线程池会创建新的线程，直到创建的线程数量达到corePoolSize时，则会将新的任务加入到等待队列中。若等待队列已满，即超过ArrayBlockingQueue初始化的容量，则继续创建线程，直到线程数量达到maximumPoolSize设置的最大线程数量，
+    若大于maximumPoolSize，则执行拒绝策略。在这种情况下，线程数量的上限与有界任务队列的状态有直接关系，如果有界队列初始容量较大或者没有达到超负荷的状态，线程数将一直维持在corePoolSize以下，反之当任务队列已满时，则会以maximumPoolSize为最大线程数上限。
+
+3. 无界的任务队列LinkedBlockingQueue
+
+    使用无界任务队列，线程池的任务队列可以无限制的添加新的任务，而线程池创建的最大线程数量就是你corePoolSize设置的数量，也就是说在这种情况下maximumPoolSize这个参数是无效的，哪怕你的任务队列中缓存了很多未执行的任务，当线程池的线程数达到corePoolSize后，就不会再增加了；
+    若后续有新的任务加入，则直接进入队列等待，当使用这种任务队列模式时，一定要注意你任务提交与处理之间的协调与控制，不然会出现队列中的任务由于无法及时处理导致一直增长，直到最后资源耗尽的问题。
+
+4. 优先任务队列PriorityBlockingQueue
+
+    PriorityBlockingQueue它其实是一个特殊的无界队列，它其中无论添加了多少个任务，线程池创建的线程数也不会超过corePoolSize的数量，只不过其他队列一般是按照先进先出的规则处理任务，
+    而PriorityBlockingQueue队列可以自定义规则根据任务的优先级顺序先后执行。
+
+#### 3.3 拒绝策略
 
 线程池中的线程已经用完了，无法继续为新任务服务，同时，等待队列也已经排满了，再也塞不下新任务了。这时候我们就需要拒绝策略机制合理的处理这个问题。
 JDK 内置的拒绝策略如下：
@@ -119,6 +141,47 @@ JDK 内置的拒绝策略如下：
     4. DiscardPolicy ： 该策略默默地丢弃无法处理的任务，不予任何处理。如果允许任务丢失，这是最好的一种方案。
      以上内置拒绝策略均实现了 RejectedExecutionHandler 接口，若以上策略仍无法满足实际需要，完全可以自己扩展 RejectedExecutionHandler 接口
 
+```java
+public class ThreadPool {
+    private static ExecutorService pool;
+    public static void main( String[] args )
+    {
+        //自定义拒绝策略
+        pool = new ThreadPoolExecutor(1, 2, 1000, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(5),
+                Executors.defaultThreadFactory(), new RejectedExecutionHandler() {
+            public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
+                System.out.println(r.toString()+"执行了拒绝策略");
+                
+            }
+        });
+          
+        for(int i=0;i<10;i++) {
+            pool.execute(new ThreadTask());
+        }    
+    }
+}
+
+public class ThreadTask implements Runnable{    
+    public void run() {
+        try {
+            //让线程阻塞，使后续任务进入缓存队列
+            Thread.sleep(1000);
+            System.out.println("ThreadName:"+Thread.currentThread().getName());
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    
+    }
+}
+```
+#### 3.4 ThreadPoolExecutor扩展
+
+    ThreadPoolExecutor扩展主要是围绕beforeExecute()、afterExecute()和terminated()三个接口实现的，
+    1、beforeExecute：线程池中任务运行前执行
+    2、afterExecute：线程池中任务运行完毕后执行
+    3、terminated：线程池退出后执行
+    通过这三个接口我们可以监控每个任务的开始和结束时间，或者其他一些功能。
 
 ### 其他：线程的原子性问题，可见性问题，有序性问题
 
@@ -129,3 +192,5 @@ JDK 内置的拒绝策略如下：
     https://www.jianshu.com/p/7ab4ae9443b9
 
     https://www.cnblogs.com/dafanjoy/p/9729358.html
+
+    https://www.jianshu.com/p/f030aa5d7a28
