@@ -23,7 +23,8 @@ public class MyThreadRunnableTask<T> implements Runnable {
     @SneakyThrows
     @Override
     public void run() {
+        Thread.currentThread().setName("custom-"+Thread.currentThread().getName());
         //休眠1秒，调用sleep()方法的过程中，线程不会释放对象锁
-        System.out.println("This is ThreadPoolExetor#submit(Runnable task, T result) method.");
+        System.out.println("This is ThreadPoolExetor#submit(Runnable task, T result) method."+";线程id："+Thread.currentThread().getId()+";线程名称："+Thread.currentThread().getName());
     }
 }

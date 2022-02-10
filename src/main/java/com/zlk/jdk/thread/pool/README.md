@@ -96,7 +96,7 @@ public ThreadPoolExecutor(int corePoolSize,
 
    1. corePoolSize：指定了线程池中的线程数量。
    2. maximumPoolSize：指定了线程池中的最大线程数量。
-   3. keepAliveTime：当前线程池数量超过 corePoolSize 时，多余的空闲线程的存活时间，即多次时间内会被销毁。
+   3. keepAliveTime：当前线程池数量超过 corePoolSize 时，多余的空闲线程的存活时间，即多少时间内会被销毁。
    4. unit：keepAliveTime 的单位。
    5. workQueue：任务队列，被提交但尚未被执行的任务。
    6. threadFactory：线程工厂，用于创建线程，一般用默认的即可。
@@ -182,6 +182,36 @@ public class ThreadTask implements Runnable{
     2、afterExecute：线程池中任务运行完毕后执行
     3、terminated：线程池退出后执行
     通过这三个接口我们可以监控每个任务的开始和结束时间，或者其他一些功能。
+
+#### 3.5 ThreadPoolExecutor 中的 shutdown() 、shutdownNow() 、awaitTermination() 的用法和区别
+
+参考： https://blog.csdn.net/thetimelyrain/article/details/106902289
+
+使用shutdown正常关闭（正常选用）
+
+    将线程池状态置为SHUTDOWN,线程池并不会立即停止：
+    停止接收外部submit的任务
+    内部正在跑的任务和队列里等待的任务，会执行完
+    等到第二步完成后，才真正停止
+
+使用shutdownNow强行关闭
+
+    将线程池状态置为STOP。企图立即停止，事实上不一定：
+    跟shutdown()一样，先停止接收外部提交的任务
+    忽略队列里等待的任务
+    尝试将正在跑的任务interrupt中断
+    返回未执行的任务列表
+
+shutdown()可以和awaitTermination()方法一起使用
+
+awaitTermination()方法的作用:
+
+    当前线程阻塞，直到
+    等所有已提交的任务（包括正在跑的和队列中等待的）执行完
+    或者等超时时间到
+    或者线程被中断，抛出InterruptedException
+    然后返回true（shutdown请求后所有任务执行完毕）或false（已超时）
+
 
 ### 其他：线程的原子性问题，可见性问题，有序性问题
 
