@@ -5,8 +5,15 @@
 
      数据应用：如多数据源切换。
 
+注：
+
+    每个Thread内都有2个ThreadLocalMap实例，分别是
+    threadLocals：每个线程独有的，不可以访问其他线程的threadLocals中的ThreadLocal
+    inheritableThreadLocals：子类可以访问父类中的ThreadLocal
 
 ### 
+
+![Alt text](./images/threadLocal.png)
 
 
 ### 参考
