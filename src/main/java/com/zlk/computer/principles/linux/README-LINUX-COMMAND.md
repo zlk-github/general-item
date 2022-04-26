@@ -216,6 +216,29 @@ Iostat提供三个报告：CPU利用率、设备利用率和网络文件系统�
         （2）重新载入一下防火墙设置，使设置生效
         firewall-cmd --reload
 
+### JAVA 
+
+#### 查看java进程使用内存与cpu情况
+
+    top -b -n 1 | grep java| awk '{print "PID:"$1",mem:"$6",CPU percent:"$9"%","mem percent:"$10"%"}'
+
+
+PS
+
+    ps -ef         #显示所有当前进程
+    ps aux         #显示所有当前进程
+    ps -ax         #显示所有当前进程
+    ps -u pungki   #根据用户过滤进程
+    ps -aux --sort -pcpu | less #根据 CPU 使用来升序排序
+    ps -aux --sort -pmem | less #根据用户过滤进程
+    ps -aux --sort -pcpu,+pmem | head -n 10 #查询全10个使用cpu和内存最高的应用
+    ps -C getty    #通过进程名和PID过滤
+    ps -f -C getty #带格式显示的，通过进程名和PID过滤
+    ps -L 1213     #根据线程来过滤进程
+    ps -axjf（或pstree）   #树形显示进程
+    ps -eo pid,user,args  # 显示安全信息
+
+
 #### 防火墙IP管理命令
 
 #### java
@@ -237,3 +260,5 @@ Iostat提供三个报告：CPU利用率、设备利用率和网络文件系统�
     阿里云安全组配置端口（详细）：https://help.aliyun.com/document_detail/25471.html?spm=a2c6h.13066369.0.0.45b56c86u5ESFx&userCode=28kqeewo
     
     LINUX现在ip与端口（详细）：https://blog.csdn.net/ywd1992/article/details/80401630
+
+    linux 内存与cpu命令参考： https://blog.csdn.net/weixin_40482816/article/details/118385737

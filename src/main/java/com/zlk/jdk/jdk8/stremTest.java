@@ -22,5 +22,8 @@ public class stremTest {
         // 获取部分字段转map
        // List<WaybillReceiverDto> collect = list.stream().map(DispatchScanDto::getWaybillReceiver).collect(Collectors.toList());
 
+        // cityList.stream().collect(Collectors.toMap(City::getCode, city -> {
+        //                return city.getEnName();
+        //            }));
     }
 }

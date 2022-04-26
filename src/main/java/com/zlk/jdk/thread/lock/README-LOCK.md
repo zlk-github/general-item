@@ -1,7 +1,7 @@
 ## 常见锁java
 
       volatile
-      单机锁LOCK，synchronized
+      单机锁LOCK，synchronized  （https://blog.csdn.net/lingbo229/article/details/81126614）
       分布式锁：redis,zookpeer,mysql等实现
       乐观锁CAS等
       多线程atomicInteger与分段锁 （https://www.cnblogs.com/muzhongjiang/p/15142938.html）
