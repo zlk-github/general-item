@@ -23,6 +23,8 @@
         ps aux|grep redis
 
     查看java进程： ps aux|grep java
+    
+    查看端口占用情况netstat –apn
 
     杀死进程： kill -9 PID (不推荐使用)
 
@@ -80,6 +82,23 @@
     移动catalina.out到catalina2.out：mv catalina.out/ catalina2.out/
 
     复制catalina.out到catalina2.out(catalina2.out不存在)：cp -r catalina.out/ catalina2.out/
+    
+    清空文件内容： echo -n "" > /var/logs/msg.log
+    
+                shell脚本---》 清空
+                #!/bin/bash
+                echo -n "" > /usr/local/jiaoben/cs1001.log
+                echo -n "" > /usr/local/jiaoben/cs1002.log
+                授权：chmod 744 /usr/local/shell/clean-log-now.sh
+                清除格式： sed -i "s/\r//" /usr/local/shell/clean-log-now.sh
+                执行脚本(清除Java应用最新日志，谨慎使用)：./usr/local/shell/clean-log-now.sh
+                
+              shell脚本---》 删除90天前.log
+                    #!/bin/bash
+                    find /data/paas/smsa/tomcat-smsp-task/logs -mtime +90 -name ".log" -exec rm -rf {} \;
+                    授权：chmod 744 /usr/local/shell/clean-log-history.sh
+                    清除格式： sed -i "s/\r//" /usr/local/shell/clean-log-history.sh
+                   执行脚本(清除Java90天前日志，C++200天前)：：./usr/local/shell/clean-log-history.sh
 
     上传下载文件：
         上传：rz （本地上传 sudo scp 本地目录 用户名@ip: 远程目录）
@@ -87,6 +106,12 @@
     
         下载：sz
 
+    # 按文件后缀收缩(1天内有改动) find . -name '*.log'  -mtime -1 -exec  ls -l \;
+         find /home/Ask/ -type f -size -10M -exec ls -lh {} \;
+         find /root/ -name "*.log"
+         按后缀全局匹配：find . -regex ".*\.\(log\)" 
+         
+    
     解压文件：
         解压tar.gz包 tar -zxvf jdk-8u211-linux-x64.tar.gz
         解压war包jar -xvf game.war
@@ -106,6 +131,7 @@
         匹配内容中有2020的行,按后面开始展示100行：grep "2020" -i catalina.out | tail -n100
         最新内容滚动查看：tail -f catalina.out
         最新内容查看500行（在之后更新的将不滚动展示）：tail -n 500 catalina.out
+        动态最新内容查看500行（在之后更新的将不滚动展示）：tail -f -n 500 catalina.out
 
 以下命令生产不要使用
 
@@ -136,11 +162,24 @@ Iostat提供三个报告：CPU利用率、设备利用率和网络文件系统�
 #### 内存分析命令：free m
 
     free m 
-
+    free -h
+    
 #### CPU占用情况
 
     mpstat -P ALL 1
+   
 
+#### 端口使用情况查看
+    lsof命令查看
+    需要安装，yum install lsof -y
+    查看指定端口占用情况
+    lsof -i:8081
+ 
+#### 磁盘使用情况
+
+    
+    
+  
 ### 5 防火墙命令
 
 #### 防火墙
@@ -179,6 +218,19 @@ Iostat提供三个报告：CPU利用率、设备利用率和网络文件系统�
 
 #### 防火墙IP管理命令
 
+#### java
+
+##### 启动命令
+
+    nohup java -jar rocketmq-console-ng-1.0.0.jar --spring.profiles.active=test >out.log 2>&1 &
+
+##### 查看进程
+
+    ps aux | grep java
+
+#### c++
+
+./hello
 
 ### 参考
     
