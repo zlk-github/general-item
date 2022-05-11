@@ -26,6 +26,23 @@
     3.将占用最高的 pid 转换为 16 进制 printf '%x\n' pid 得到 nid  
          printf '%x\n' pid 得到 nid
 
+cpu整体占用情况：mpstat -P ALL 1  （表示每1秒产生一个报告）
+
+```java
+root@VM-4-5-ubuntu:/usr/local/rocketmq# mpstat -P ALL 1
+Linux 4.15.0-159-generic (VM-4-5-ubuntu) 	05/10/2022 	_x86_64_	(2 CPU)
+
+09:58:11 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+09:58:12 AM  all    1.00    0.00    1.99    0.00    0.00    0.00    0.00    0.00    0.00   97.01
+09:58:12 AM    0    0.99    0.00    2.97    0.00    0.00    0.00    0.00    0.00    0.00   96.04
+09:58:12 AM    1    0.00    0.00    2.02    0.00    0.00    0.00    0.00    0.00    0.00   97.98
+
+09:58:12 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+09:58:13 AM  all    2.04    0.00    0.51    0.00    0.00    0.00    0.00    0.00    0.00   97.45
+09:58:13 AM    0    1.01    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   97.98
+09:58:13 AM    1    4.04    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   95.96
+```
+
 #### 1.2 jstack 分析 CPU 问题
 
     使用nid查询堆栈消息

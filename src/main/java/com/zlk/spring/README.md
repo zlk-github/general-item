@@ -96,3 +96,5 @@ allprojects {
 ### 参考
 
     官网 https://spring.io/projects/spring-framework
+
+    jdk8: https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
