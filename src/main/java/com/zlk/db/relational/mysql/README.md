@@ -83,6 +83,13 @@
 
 ### 3.锁相关与MVCC
 
+     1.1查看被锁表
+     show status like '%lock%';
+     show OPEN TABLES where In_use > 0;
+     1.2查询进程
+     show processlist
+     查询到相对应的进程===然后 kill id
+
 ### 4.索引与失效
 
 ### 5.索引底层结构
