@@ -81,6 +81,11 @@
 
     select * from 表名;
 
+增加表字段：
+
+ALTER TABLE 表名 ADD COLUMN `字段` VARCHAR(64) NOT NULL DEFAULT '' COMMENT '字段描述';
+
+
 ### 3.锁相关与MVCC
 
      1.1查看被锁表
@@ -91,6 +96,18 @@
      查询到相对应的进程===然后 kill id
 
 ### 4.索引与失效
+
+创建索引
+
+    唯一索引
+    ALTER TABLE `表名` ADD UNIQUE INDEX  uk_code(`code`),ALGORITHM=inplace,LOCK=NONE;
+    
+    普通索引
+    ALTER TABLE `表名` ADD  INDEX  idx_code(`code`),ALGORITHM=inplace,LOCK=NONE;
+
+删除索引
+
+    DROP INDEX 索引名称 ON 表名称;
 
 ### 5.索引底层结构
 
