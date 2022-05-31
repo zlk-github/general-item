@@ -5,6 +5,8 @@
 
 ### 1 JVM内存区域分布
 
+详细见： [JVM内存区域分布(JAVA8)](https://github.com/zlk-github/general-item/blob/master/src/main/java/com/zlk/jdk/jvm/README-MODEL.md#JVM内存区域分布(JAVA8))
+
 下图为java7 内存模型
 ![Image text](./images/JAVA7.PNG)
 
@@ -30,6 +32,18 @@ Java8的JVM内存模型包括，堆、栈（java虚拟机栈与本地方法栈�
     本地方法栈：针对本地方法存储局部变量、操作数、动态链接（本地对象引用地址）、本地方法出口等）。
 
 ### 2 JAVA对象创建
+
+    java对象创建
+        对象创建顺序
+        类加载机制
+        CAS
+
+    java 对象内存分布
+
+    对象访问方式
+        直接指针
+        句柄
+
 
 ### 3 垃圾回收算法
 
