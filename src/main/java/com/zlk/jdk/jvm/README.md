@@ -1,17 +1,17 @@
 ## JAVA虚拟机（JDK 8）
 
 
-![Image text](./images/JVM.PNG)
+![Image text](./images/JVM.png)
 
 ### 1 JVM内存区域分布
 
 详细见： [JVM内存区域分布(JAVA8)](https://github.com/zlk-github/general-item/blob/master/src/main/java/com/zlk/jdk/jvm/README-MODEL.md#JVM内存区域分布(JAVA8))
 
 下图为java7 内存模型
-![Image text](./images/JAVA7.PNG)
+![Image text](./images/JAVA7.png)
 
 下图为java8 内存模型
-![Image text](./images/JAVA8.PNG)
+![Image text](./images/JAVA8.png)
     
     JAVA8相较于JAVA7，去除了方法区（永久代）。
         方法区中的静态变量、字符串常量池等移到堆内存中。

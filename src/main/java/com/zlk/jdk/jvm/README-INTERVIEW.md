@@ -21,4 +21,4 @@
 	Survivor区，一块叫From，一块叫To，对象存在Eden和From块。当进行GC时，Eden存活的对象全移到To块，而From中，存活的对象按年龄值确定去向，当达到一定值（年龄阈值，通过-XX:MaxTenuringThreshold可设置）的对象会移到年老代中，没有达到值的复制到To区，经过GC后，Eden和From被清空。
 	    之后，From和To交换角色，新的From即为原来的To块，新的To块即为原来的From块，且新的To块中对象年龄加1。
 
-![Image text](./images/20200516001.PNG)
+![Image text](./images/20200516001.png)
