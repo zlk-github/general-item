@@ -260,6 +260,37 @@ PS
         mvn deploy:deploy-file -DgroupId=common-zlk -DartifactId=common-zlk-core  -Dversion=1.0.0-SNAPSHOT  -Dpackaging=jar -Dfile=common-zlk-core-1.0.0-SNAPSHOT.jar  
         -Durl=http://127.0.0.1:8099/nexus/content/repositories/snapshots/ -DrepositoryId=snapshots -X
 
+#### install
+
+    mvn  clean install -U -Dmaven.test.skip=true
+
+#### 配置成服务
+
+    跳转：cd /usr/lib/systemd/system
+
+    mkdir 服务名称.service 
+ 
+    编辑:
+        [Unit]
+        Description=服务名称
+        
+        [Service]
+        Type=simple
+        ExecStart= /user/local/jdk1.8.0_311/bin/java -Xms1024m -Xmx1024m -jar /user/app/speedaf-cheetah-basic.jar
+        Restart=always
+        WorkingDirectory=/user/app
+        Nice=19
+        LimitNOFILE=16384
+        TimeoutStopSec=20
+        StandardOutput=null
+        
+        [Install]
+        WantedBy=multi-user.target
+
+    刷新:systemctl daemon-reload
+
+    重启：systemctl restart 服务名称
+
 #### c++
 
 ./hello
