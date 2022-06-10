@@ -251,6 +251,15 @@ PS
 
     ps aux | grep java
 
+#### 上传包到私服务
+
+    mvn deploy:deploy-file -DgroupId=groupId -DartifactId=artifactId  -Dversion=版本号  -Dpackaging=jar -Dfile=包地址  
+    -Durl=私服仓库地址 -DrepositoryId=私服仓库地址目录 -X
+
+    如：
+        mvn deploy:deploy-file -DgroupId=common-zlk -DartifactId=common-zlk-core  -Dversion=1.0.0-SNAPSHOT  -Dpackaging=jar -Dfile=common-zlk-core-1.0.0-SNAPSHOT.jar  
+        -Durl=http://127.0.0.1:8099/nexus/content/repositories/snapshots/ -DrepositoryId=snapshots -X
+
 #### c++
 
 ./hello
