@@ -245,7 +245,22 @@ PS
 
 ##### 启动命令
 
+    后台服务方式启动rocketmq-console-ng-1.0.0.jar，测试环境，输出日志
     nohup java -jar rocketmq-console-ng-1.0.0.jar --spring.profiles.active=test >out.log 2>&1 &
+
+
+    后台服务方式启动test-1.0.0.jar，指定端口8181，配置jconsole，测试环境，输出日志
+    nohup java -Xms128M -Xmx256M -XX:PermSize=512M -XX:MaxPermSize=512M -XX:MaxPermSize=512M
+    -Dcom.sun.management.jmxremote.port=9999
+    -Dcom.sun.management.jmxremote.authenticate=false
+    -Dcom.sun.management.jmxremote.ssl=false
+    -jar  test-1.0.0.jar  --server.port=8181 --spring.profiles.active=test >out.log 2>&1 &
+
+     指定启动配置文件（少见）
+     nohup -Dserver.port=8086 java-Dspring.config.additional-location=./application-dev.yml -jar ./包名.jar> nohup.out 2>&1 &
+
+     指定G1垃圾回收器
+     java -server -XX:+UseG1GC -jar 包名.jar
 
 ##### 查看进程
 
@@ -287,7 +302,7 @@ PS
         [Install]
         WantedBy=multi-user.target
 
-    刷新:systemctl daemon-reload
+    刷新: systemctl daemon-reload
 
     重启：systemctl restart 服务名称
 
