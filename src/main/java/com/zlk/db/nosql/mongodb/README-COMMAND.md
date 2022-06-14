@@ -95,16 +95,59 @@
 
 ### 3.文档操作
 
+    use 库名称
+
 ###### 3.1 新增
+
+    db.集合名称.insert(document)
+    或
+    db.集合名称.save(document)
+
+    3.2 版本之后新增了 db.collection.insertOne() 和 db.collection.insertMany()。
+        1.
+        db.集合名称.insertOne() 用于向集合插入一个新文档，语法格式如下：
+        db.集合名称.insertOne(
+            <document>,
+            {
+            writeConcern: <document>
+            }
+        )
+
+        2.
+        db.集合名称.insertMany() 用于向集合插入一个多个文档，语法格式如下：
+        db.集合名称.insertMany(
+            [ <document 1> , <document 2>, ... ],
+            {
+            writeConcern: <document>,
+            ordered: <boolean>
+            }
+        )
+        注：
+        document：要写入的文档。
+        writeConcern：写入策略，默认为 1，即要求确认写操作，0 是不要求。
+        ordered：指定是否按顺序写入，默认 true，按顺序写入。
+
+例子：
+
+    db.user.insert({"name":"zlk"})
+
+    db.user.save({"name":"zlk1"})
+
+    db.user.insertOne({"code":"1001",name":"zlk2"})
 
 ###### 3.2 修改
 
 ###### 3.3 查询
 
-    db.getCollection('t_operation_log').find({"operationCode":"WBUD","code":{$in:["11852",
-        "11853"
+    db.getCollection('集合名称').find()
+
+    db.getCollection('集合名称').find({"字段1":"内容","字段2":{$in:["内容2",
+        "内容3"
     ]}})
 
+例子：
+
+    db.getCollection('user').find()
 
 ###### 3.4 删除
 

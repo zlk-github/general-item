@@ -68,6 +68,18 @@ nginx主要用来做反向代理、负载均衡、资源动静分离以及图片
 	1.负载均衡，提高请求处理与响应速度（集群）;
 	2.保证内网安全，隐藏服务器信息，防止web攻击。
 
+**Nginx集群默认算法**
+
+    1、轮询（默认）
+    每个请求按时间顺序逐⼀分配到不同的后端服务器，如果后端服务器down掉，能⾃动剔除。
+    2、weight
+    指定轮询⼏率，weight和访问⽐率成正⽐，⽤于后端服务器性能不均的情况。
+    3、ip_hash
+    每个请求按访问ip的hash结果分配，这样每个访客固定访问⼀个后端服务器，可以解决session的问题。
+    4、fair（第三⽅）
+    按后端服务器的响应时间来分配请求，响应时间短的优先分配。
+    5、url_hash（第三⽅）
+    按访问url的hash结果来分配请求，使每个url定向到同⼀个后端服务器，后端服务器为缓存时⽐较有效。
 
 ### 2 nginx 常用命令（linux）
 
@@ -338,8 +350,9 @@ nginx.conf说明。
 
     NGINX实现主从备份目前主流方案是Keepalived+Nginx实现双机热备。
 
-#### 9.2 NGINX分布式集群
+    安装见：https://www.jianshu.com/p/5547a9f4c50c
 
+#### 9.2 NGINX分布式集群
 
 ### 总结
 
@@ -349,3 +362,7 @@ nginx主要用来做反向代理、负载均衡、资源动静分离以及图片
 ### 参考
 
     http://nginx.org
+
+    https://blog.csdn.net/sinat_39415600/article/details/120323960
+
+    https://www.nginx.org.cn/article/detail/72
