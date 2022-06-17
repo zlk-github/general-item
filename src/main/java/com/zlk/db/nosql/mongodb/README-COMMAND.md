@@ -1,6 +1,12 @@
-## MONGODB
+## MongoDB
+    
+    mongodb不支持事务，所以，在你的项目中应用时，要注意这点。无论什么设计，都不要要求mongodb保证数据的完整性。
+    
+    但是mongodb提供了许多原子操作，比如文档的保存，修改，删除等，都是原子操作。
+    
+    所谓原子操作就是要么这个文档保存到Mongodb，要么没有保存到Mongodb，不会出现查询到的文档没有保存完整的情况。
 
-### 1.mongodb常用命令
+### 1.MongoDB常用命令
 
 |SQL术语/概念|MongoDB术语/概念|解释/说明|
 |---- |---- |----  |
@@ -13,7 +19,7 @@
 |primary key|	primary key|	主键,MongoDB自动将_id字段设置为主键|
 
 
-常用 mongoDB 角色
+常用 MongoDB 角色
 
     数据库用户角色： read、 readWrite
     数据库管理角色：dbAdmin、dbOwner、userAdmin
@@ -238,7 +244,7 @@
 ###### 3.4 删除文档
     
     删除文档：
-    db.collection.remove(
+    db.集合名称.remove(
         <query>,
         {
             justOne: <boolean>,
@@ -253,7 +259,7 @@
 
 例子：
 
-    db.user.save({"code":"1005001"})
+    db.user.remove({"code":"1005001"})
 
 ###### 3.5 分页查询文档
     
@@ -273,8 +279,46 @@
 
 ### 5 索引
 
+##### 5.1 创建索引
+
+    >db.集合名称.createIndex(keys, options)
+    语法中 Key 值为你要创建的索引字段，1 为指定按升序创建索引，如果你想按降序来创建索引指定为 -1 即可。
+
+例子：
+
+    // 非后台创建
+    db.user.createIndex({"code":1,"name":-1})
+
+    //在后台创建索引：
+    db.user.createIndex({"code":1,"age":-1}, {"background": true})
+
+##### 5.2 查看集合索引
+
+    db.集合名称.getIndexes()
+
+##### 5.3 查看集合索引大小
+
+    db.集合名称.totalIndexSize()
+##### 5.4 删除集合所有索引
+
+    db.集合名称.dropIndexes()
+
+##### 5.5 删除集合指定索引
+
+    db.集合名称.dropIndex("索引名称")
+
+
 ### 6 优化
 
-### 7 集群与分片
+### 7 主从与分片（集群）
+
+##### 7.1 主从
+
+    mongodb的复制至少需要两个节点。其中一个是主节点，负责处理客户端请求，其余的都是从节点，负责复制主节点上的数据。
+    mongodb各个节点常见的搭配方式为：一主一从、一主多从。
+
+##### 7.2 分片（集群）
+
+    集群分片存储.......
 
 ### 8 参考
