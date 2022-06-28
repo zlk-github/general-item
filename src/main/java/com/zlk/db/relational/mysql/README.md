@@ -2,6 +2,8 @@
 
 ### 1.数据库常用命令
 
+    数据库版本号：SELECT VERSION();
+
 ###### 1 启动和关闭数据库
 
     net stop mysql
@@ -52,6 +54,19 @@
 ###### 12 退出MYSQL：
 
     exit； (回车)
+
+##### 编码相关
+
+    显示数据库相关编码
+    SHOW VARIABLES WHERE Variable_name LIKE 'character_set_%' OR Variable_name LIKE 'collation%';
+
+    显示表相关编码
+    SHOW FULL COLUMNS FROM 表名称
+
+    修改库，表，字段编码
+    ALTER DATABASE 库名称 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+    ALTER TABLE 表名称 CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+    ALTER TABLE 表名称 MODIFY COLUMN 字段名称 VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
 
 ### 2.表操作
 
