@@ -11,20 +11,22 @@ Redis相关可执行文件的主要作用
 启动Redis集群顺序
 
     1.启动Redis，顺序主->从
-    redis-server /usr/local/redis/redis-5.0.14/etc/redis.conf
+    ./redis-server /usr/local/redis/redis-5.0.14/etc/redis.conf
     
     2.启动Sentinel，顺序主->从
-    redis-sentinel /usr/local/redis/redis-5.0.14/etc/sentinel.conf
+    ./redis-sentinel /usr/local/redis/redis-5.0.14/etc/sentinel.conf
 
 ### Redis应用级
 
     redis/bin目录下：
     
-    启动服务命令： redis-server /usr/local/redis/redis-5.0.14/etc/redis.conf
-    启动服务命令： redis-sentinel /usr/local/redis/redis-5.0.14/etc/sentinel.conf
+    启动服务命令： ./redis-server /usr/local/redis/redis-5.0.14/etc/redis.conf
+    启动服务命令： ./redis-sentinel /usr/local/redis/redis-5.0.14/etc/sentinel.conf
     进入redis-cli： redis-cli
-    进入redis-cli(密码123456)： 单机：redis-cli -h 127.0.0.1 -p 6379 -a 123456
-                               集群：redis-cli -c -h 集群ip -p 端口 -a 密码
+    进入redis-cli(密码123456)： 单机：./redis-cli -h 127.0.0.1 -p 6379 -a 123456
+                               集群：./redis-cli -c -h 集群ip -p 端口 -a 密码
+
+    ./redis-cli -c -h 172.19.176.190 -p 7001 -a qA5mBVUuHv8Fc7Uy4Jnf
 
     查看服务： ps aux|grep redis
     查看端口: netstat -antp | grep 6379
