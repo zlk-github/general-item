@@ -81,8 +81,5 @@ public class LocalFieldUtil {
     }
 
 
-    public static void main(String[] args) {
-        getFieldVal(Object obj,LanguageFieldEnu);
-    }
 
 }
