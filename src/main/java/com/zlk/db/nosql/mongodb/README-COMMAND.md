@@ -292,6 +292,13 @@
     //在后台创建索引：
     db.user.createIndex({"code":1,"age":-1}, {"background": true})
 
+    // 唯一索引
+    db.persons.createIndex({"code":1},{unique:true})
+    db.collection.createIndex( { "code":1,"age":1 }, { unique: true }, {"background": true} )
+    // 设置过期时间
+    db.collection.createIndex( { "code":1,"age":1 }, { unique: true }, { expireAfterSeconds: 3600 }, {"background": true} )
+
+
 ##### 5.2 查看集合索引
 
     db.集合名称.getIndexes()

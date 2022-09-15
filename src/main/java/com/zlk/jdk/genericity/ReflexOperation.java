@@ -1,10 +1,8 @@
 package com.zlk.jdk.genericity;
 
-import com.zlk.po.User;
+import com.zlk.domain.po.User;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 /**
  * @author likuan.zhou
