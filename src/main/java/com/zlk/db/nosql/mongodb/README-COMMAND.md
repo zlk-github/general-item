@@ -306,6 +306,7 @@
 ##### 5.3 查看集合索引大小
 
     db.集合名称.totalIndexSize()
+
 ##### 5.4 删除集合所有索引
 
     db.集合名称.dropIndexes()
