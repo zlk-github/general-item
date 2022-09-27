@@ -1,4 +1,4 @@
-## mysql-DB
+usr## mysql-DB
 
 ### 1.数据库常用命令
 

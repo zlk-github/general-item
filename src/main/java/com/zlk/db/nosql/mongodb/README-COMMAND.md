@@ -201,6 +201,19 @@
     // 查询db.getCollection('user').find() 或者 db.getCollection('user').find({"code":"1005001"})
     { "_id" : ObjectId("62a87e7fa6618be3cc813c29"), "code" : "1005001", "name" : "name1001" }
 
+
+    db.user.update({"createTime":{$gte: "2022-09-22 01:49:59"}},{$set:{"code":"1005001","name":"1005001"}})
+
+    db.getCollection('t_email_send_record').find({"createTime":{$lte: new ISODate("2022-09-22 01:49:59.000Z")},"countryCode":"EG","system":"TDS"})
+    
+    
+    db.t_email_send_record.find({"createTime":{$lte: new ISODate("2022-09-22 01:49:59.000Z")},"countryCode":"EG","system":"TDS"}).forEach(function(item){
+    //对查询到的每一条的item中的update_time进行增加2个小时的操
+    item.createTime = new Date(item.createTime.getTime() - 2*60*60*1000)
+    //将修改过的item重新保存进集合中
+    db.t_email_send_record.save(item)
+    })
+
 ###### 3.3 查询文档
 
     // 查询集合下全部
@@ -292,6 +305,13 @@
     //在后台创建索引：
     db.user.createIndex({"code":1,"age":-1}, {"background": true})
 
+    // 唯一索引
+    db.persons.createIndex({"code":1},{unique:true})
+    db.collection.createIndex( { "code":1,"age":1 }, { unique: true }, {"background": true} )
+    // 设置过期时间
+    db.collection.createIndex( { "code":1,"age":1 }, { unique: true }, { expireAfterSeconds: 3600 }, {"background": true} )
+
+
 ##### 5.2 查看集合索引
 
     db.集合名称.getIndexes()
@@ -299,6 +319,7 @@
 ##### 5.3 查看集合索引大小
 
     db.集合名称.totalIndexSize()
+
 ##### 5.4 删除集合所有索引
 
     db.集合名称.dropIndexes()

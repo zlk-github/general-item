@@ -55,7 +55,7 @@ Redis相关可执行文件的主要作用
 
     (推荐使用，结果可能不精准)scan用法（cursor为游标，标记位置；MATCH为匹配内容;COUNT指定为查询范围，如从1000条中筛选）
          SCAN cursor [MATCH pattern] [COUNT count]
-         例：SCAN 0 apple* 1000
+         例：SCAN 0 match apple* count 1000
     
     key的有效时间
     
@@ -73,6 +73,12 @@ Redis相关可执行文件的主要作用
 
     删除key
     del key
+
+    del key1 key2
+
+    redis-cli KEYS “key*” | xargs redis-cli DEL
+
+    redis-cli -a 你的密码 keys ‘key*‘ | xargs redis-cli -a 你的密码 del
 
 #### 按数据类型
 
