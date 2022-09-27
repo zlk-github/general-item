@@ -1,6 +1,6 @@
 package com.zlk.jdk.thread.general;
 
-import com.zlk.po.User;
+import com.zlk.domain.po.User;
 import lombok.Data;
 
 import java.util.concurrent.Callable;

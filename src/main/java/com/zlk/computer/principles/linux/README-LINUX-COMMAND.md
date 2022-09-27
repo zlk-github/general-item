@@ -310,6 +310,34 @@ PS
 
 ./hello
 
+#### 待梳理
+
+    1、查询后50条关键字上下文30行：tail -f 30 | grep -C 30 'prelink.cainiao.com' logistics-public-service.log
+    
+    1、查询后50条关键字上下文30行：tail -f 30 | grep -C 30 '/open-api/cainiao/order/asn' logistics-public-service.log
+    
+    1、查询后50条关键字上下文30行：tail -f 30 | grep -C 30 'TZAGZ0120220909000008' logistics-public-service.log
+    
+    tail -f 30 | grep -C 30 'phulkaripk#16570' logistics-customer.log
+    
+    grep '保存轨迹数据:' |  grep '254200017680' logistics-public-service-2022-06-13.6.log
+    
+    2、从Linux下载文件到本机 , 在Linux终端输入命令回车后，选择本地存储路径即可。
+    
+    命令格式：   sz filename  下载文件filename
+    
+    sz file1 file2  下载多个文件
+    
+    sz dir/*　　　下载dir目录下所有文件
+    
+    3、gunzip 解压.gz包；
+    
+    4、**ps aux | grep 服务名称**
+    
+    5、**netstat -tunple | grep 服务端口**
+    
+    6、Nginx重启：sbin目录下执行**./nginx -s reload**
+
 ### 参考
     
     阿里云安全组配置端口（详细）：https://help.aliyun.com/document_detail/25471.html?spm=a2c6h.13066369.0.0.45b56c86u5ESFx&userCode=28kqeewo

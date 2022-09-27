@@ -2,7 +2,7 @@ package com.zlk.jdk.thread.pool;
 
 import com.zlk.jdk.thread.general.MyThreadRunnableTask;
 import com.zlk.jdk.thread.general.PriorityThreadRunnableTask;
-import com.zlk.po.User;
+import com.zlk.domain.po.User;
 
 import java.util.concurrent.*;
 
