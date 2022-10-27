@@ -132,7 +132,9 @@
         最新内容滚动查看：tail -f catalina.out
         最新内容查看500行（在之后更新的将不滚动展示）：tail -n 500 catalina.out
         动态最新内容查看500行（在之后更新的将不滚动展示）：tail -f -n 500 catalina.out
-
+        查询：tail -f -n 500 catalina.out | grep -i 'NG020013198249'
+             tail -n 500 catalina.out | grep -i 'NG020013198249'
+        
 以下命令生产不要使用
 
     //-----------------------------------关闭Firewalld防火墙

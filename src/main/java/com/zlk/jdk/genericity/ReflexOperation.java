@@ -1,6 +1,6 @@
 package com.zlk.jdk.genericity;
 
-import com.zlk.domain.po.User;
+import com.zlk.jdk.dynamicproxy.jdk.User;
 
 import java.lang.reflect.Field;
 
